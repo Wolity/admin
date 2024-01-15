@@ -15,10 +15,60 @@
       crossorigin="anonymous"
     />
   </head>
+  <style>
+    body {
+      height: 100vh;
+      overflow: hidden;
+    }
+    #form {
+      width: 560px;
+      top: -50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: top 0.5s;
+    }
+  </style>
   <body class="bg-dark">
     <button class="btn btn-outline-primary" id="btnEnter">
       <i class="fal fa-sign-in"></i>
       <span>Авторизация</span>
     </button>
+    <div class="d-flex flex-column bg-warning position-absolute p-3" id="form">
+      <label class="form-label">
+        <span>Введите логин:</span>
+        <input
+          type="email"
+          class="form-control"
+          id="emailValue"
+          placeholder="name@example.com"
+        />
+      </label>
+      <label class="form-label">
+        <span>Введите пароль:</span>
+        <input
+          type="password"
+          class="form-control"
+          id="passwordValue"
+          placeholder="1234"
+        />
+      </label>
+      <button class="btn btn-primary" id="loginBtn">
+        <i class="fal fa-sign-in"></i>
+        <span>Вход</span>
+      </button>
+    </div>
   </body>
+  <script>
+  let btnEnter = document.getElementById('btnEnter')
+  let loginBtn = document.getElementById('loginBtn')
+  let form = document.getElementById('form')
+  btnEnter.addEventListener("click", openForm)
+  function openForm(){
+    form.style.top = '50%';
+  }
+  loginBtn.addEventListener('click', closeForm)
+  function closeForm() {
+    form.style.top = '-50%';
+  }
+  </script>
 </html>
